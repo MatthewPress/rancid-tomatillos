@@ -1,22 +1,48 @@
-import React, { Component } from 'react';
+import { useState, useEffect } from "react";
 
-import movieData from '../../movie-data';
+// import movieData from '../../movie-data';
+import Header from '../Header/Header';
+import MovieDisplay from '../MovieDisplay/MovieDisplay';
 import Moviebox from "../Moviebox/Moviebox";
+
+import { getMovies } from '../../apiCalls/apiCalls';
 
 import './App.css';
 
-class App extends Component {
-  state = {
-    movies: movieData.movies,
+function App() {
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState([]);
+
+  useEffect(() => {
+    getMovies()
+      .then((movieData) => {
+        setMovies(movieData.movies);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const handleSelection = (event) => {
+    const movieSelection = movies.filter((movie) => {
+      return movie.id === parseInt(event.target.id)
+    });
+
+    setSelectedMovie(movieSelection);
   }
 
-  render() {
-    return (
-      <>
-        <Moviebox movies={this.state.movies} />
-      </>
-    );
+  const clearSelection = () => {
+    setSelectedMovie([]);
   }
+
+  return (
+    <>
+      <Header />
+        { 
+          selectedMovie.length 
+            ? <MovieDisplay selectedMovie={selectedMovie} clearSelection={clearSelection} />
+            : <Moviebox movies={movies} handleSelection={handleSelection} />
+        }
+    </>
+  );
 }
 
 export default App;

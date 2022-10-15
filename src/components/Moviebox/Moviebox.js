@@ -1,14 +1,14 @@
-import Movie from '../Movie/Movie';
+import MoviePoster from '../MoviePoster/MoviePoster';
 
 import './Moviebox.css';
 
-function Moviebox({ movies }) {
-  const movieCards = movies.map((movieData) => {
-    return <Movie movieData={movieData} />
+function Moviebox({ movies, handleSelection }) {
+  const movieCards = movies.map((movie) => {
+    return <MoviePoster movie={movie} handleSelection={handleSelection} />
   })
 
   return (
-    <section>
+    <section className="movie-box--display">
       {movieCards}
     </section>
   );
