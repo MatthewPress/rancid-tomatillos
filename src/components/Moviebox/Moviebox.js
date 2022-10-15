@@ -3,8 +3,8 @@ import MoviePoster from '../MoviePoster/MoviePoster';
 import './Moviebox.css';
 
 function Moviebox({ movies, handleSelection }) {
-  const movieCards = movies.map((movieData) => {
-    return <MoviePoster movieData={movieData} handleSelection={handleSelection} />
+  const movieCards = movies.map((movie) => {
+    return <MoviePoster movie={movie} handleSelection={handleSelection} />
   })
 
   return (

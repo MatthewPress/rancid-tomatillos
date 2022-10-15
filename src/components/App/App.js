@@ -1,50 +1,48 @@
-// import { useState, useEffect } from "react";
-import React, { Component } from 'react';
+import { useState, useEffect } from "react";
 
-import movieData from '../../movie-data';
+// import movieData from '../../movie-data';
 import Header from '../Header/Header';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
 import Moviebox from "../Moviebox/Moviebox";
 
-// import { getMovies } from '../../apiCalls/apiCalls';
+import { getMovies } from '../../apiCalls/apiCalls';
 
 import './App.css';
 
-class App extends Component {
-  state = {
-    movies: movieData.movies,
-    selectedMovie: [],
-  }
+function App() {
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState([]);
 
-  // getMovies()
-  //   .then((movieData) => {
-  //     this.setState({ movies: movieData.movies })
-  //   });
+  useEffect(() => {
+    getMovies()
+      .then((movieData) => {
+        setMovies(movieData.movies);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-  handleSelection = (event) => {
-    const movieSelection = this.state.movies.filter((movie) => {
+  const handleSelection = (event) => {
+    const movieSelection = movies.filter((movie) => {
       return movie.id === parseInt(event.target.id)
     });
 
-    this.setState({ selectedMovie: movieSelection });
+    setSelectedMovie(movieSelection);
   }
 
-  clearSelection = () => {
-    this.setState({ selectedMovie: [] })
+  const clearSelection = () => {
+    setSelectedMovie([]);
   }
 
-  render() {
-    return (
-      <>
-        <Header />
-          { 
-            this.state.selectedMovie.length 
-              ? <MovieDisplay selectedMovie={this.state.selectedMovie} clearSelection={this.clearSelection} />
-              : <Moviebox movies={this.state.movies} handleSelection={this.handleSelection} />
-          }
-      </>
-    );
-  }
+  return (
+    <>
+      <Header />
+        { 
+          selectedMovie.length 
+            ? <MovieDisplay selectedMovie={selectedMovie} clearSelection={clearSelection} />
+            : <Moviebox movies={movies} handleSelection={handleSelection} />
+        }
+    </>
+  );
 }
 
 export default App;

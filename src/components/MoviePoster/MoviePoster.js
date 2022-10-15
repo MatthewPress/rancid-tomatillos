@@ -1,12 +1,12 @@
 import './MoviePoster.css';
 
-function MoviePoster({ movieData, handleSelection }) {
+function MoviePoster({ movie, handleSelection }) {
   return (
-    <article key={movieData.id}>
+    <article key={movie.id}>
       <img 
-        src={movieData.poster_path} 
-        alt={movieData.title}
-        id={movieData.id} 
+        src={movie.poster_path} 
+        alt={movie.title}
+        id={movie.id} 
         className="movie-poster--display"
         onClick={(event) => handleSelection(event)} 
       />
