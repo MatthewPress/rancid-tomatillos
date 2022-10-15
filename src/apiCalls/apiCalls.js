@@ -9,7 +9,7 @@ const getMovies = async (setFunction) => {
       return data;
     }
   } catch (error) {
-    throw error;
+    return error;
   }
 };
 

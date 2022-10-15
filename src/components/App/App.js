@@ -36,11 +36,11 @@ function App() {
   return (
     <>
       <Header />
-        { 
-          selectedMovie.length 
-            ? <MovieDisplay selectedMovie={selectedMovie} clearSelection={clearSelection} />
-            : <Moviebox movies={movies} handleSelection={handleSelection} />
-        }
+      {
+        selectedMovie.length
+          ? <MovieDisplay selectedMovie={selectedMovie} clearSelection={clearSelection} />
+          : <Moviebox movies={movies} handleSelection={handleSelection} />
+      }
     </>
   );
 }
