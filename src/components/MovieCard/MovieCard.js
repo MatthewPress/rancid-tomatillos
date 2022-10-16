@@ -1,6 +1,6 @@
-import './MovieDisplay.css';
+import './MovieCard.css';
 
-function MovieDisplay({ selectedMovie, clearSelection }) {
+function MovieCard({ selectedMovie, clearSelection }) {
   
   return (
     <article>
@@ -14,4 +14,4 @@ function MovieDisplay({ selectedMovie, clearSelection }) {
   );
 }
 
-export default MovieDisplay;
+export default MovieCard;

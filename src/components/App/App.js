@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // import movieData from '../../movie-data';
 import Header from '../Header/Header';
-import MovieDisplay from '../MovieDisplay/MovieDisplay';
+import MovieCard from '../MovieCard/MovieCard';
 import Moviebox from "../Moviebox/Moviebox";
 
 import { getMovies } from '../../apiCalls/apiCalls';
@@ -36,11 +36,11 @@ function App() {
   return (
     <>
       <Header />
-        { 
-          selectedMovie.length 
-            ? <MovieDisplay selectedMovie={selectedMovie} clearSelection={clearSelection} />
-            : <Moviebox movies={movies} handleSelection={handleSelection} />
-        }
+      { 
+        selectedMovie.length 
+          ? <MovieCard selectedMovie={selectedMovie} clearSelection={clearSelection} />
+          : <Moviebox movies={movies} handleSelection={handleSelection} />
+      }
     </>
   );
 }
