@@ -5,13 +5,13 @@ import Header from '../Header/Header';
 import MovieCard from '../MovieCard/MovieCard';
 import Moviebox from "../Moviebox/Moviebox";
 
-import { getMovies } from '../../apiCalls/apiCalls';
+import { getMovies, getSingleMovie } from '../../apiCalls/apiCalls';
 
 import './App.css';
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState({});
 
   useEffect(() => {
     getMovies()
@@ -22,15 +22,17 @@ function App() {
   }, []);
 
   const handleSelection = (event) => {
-    const movieSelection = movies.filter((movie) => {
-      return movie.id === parseInt(event.target.id)
-    });
+    const movieID = parseInt(event.target.id);
 
-    setSelectedMovie(movieSelection);
+    getSingleMovie(movieID)
+      .then((movie) => {
+        setSelectedMovie(movie.movie);
+      })
+      .catch((error) => console.log(error));
   }
 
   const clearSelection = () => {
-    setSelectedMovie([]);
+    setSelectedMovie({});
   }
 
   return (
