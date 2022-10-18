@@ -1,17 +1,20 @@
 import './MoviePoster.css';
+import { Link } from 'react-router-dom'
 
 function MoviePoster({ movie, handleSelection }) {
   return (
-    <article key={movie.id}>
-      <img
-        src={movie.poster_path}
-        alt={movie.title}
-        id={movie.id}
-        className="movie-poster--display"
-        onClick={(event) => handleSelection(event)}
-      />
+    <Link to={`/movie/${movie.id}`}>
+      <article key={movie.id}>
+        <img
+          src={movie.poster_path}
+          alt={movie.title}
+          id={movie.id}
+          className="movie-poster--display"
+          onClick={(event) => handleSelection(event)}
+        />
 
-    </article>
+      </article>
+    </Link>
   );
 }
 
