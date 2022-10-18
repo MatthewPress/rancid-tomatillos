@@ -26,6 +26,7 @@ function App() {
 
     getSingleMovie(movieID)
       .then((movie) => {
+        console.log(movie)
         setSelectedMovie(movie.movie);
       })
       .catch((error) => console.log(error));
@@ -36,14 +37,14 @@ function App() {
   }
 
   return (
-    <>
+    <div className="App">
       <Header />
-      { 
-        selectedMovie.length 
+      {
+        selectedMovie.runtime
           ? <MovieCard selectedMovie={selectedMovie} clearSelection={clearSelection} />
-          : <Moviebox movies={movies} handleSelection={handleSelection} />
+          : <Moviebox movies={movies} handleSelection={handleSelection} className="MovieBox" />
       }
-    </>
+    </div>
   );
 }
 

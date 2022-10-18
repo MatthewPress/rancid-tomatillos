@@ -1,4 +1,18 @@
-.selected-movie--display {
-  max-width: 100%;
+article {
+  background-color: black;
+  font-family: fantasy
+}
+
+.specific-movie {
+  justify-content: center;
   height: auto;
+  border-color: black;
+  background-color: black;
+  width: 80%;
+}
+
+.specific-movie:hover {
+  transform: none;
+  border-color: black;
+
 }
