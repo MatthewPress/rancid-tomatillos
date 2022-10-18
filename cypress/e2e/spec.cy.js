@@ -8,8 +8,7 @@ describe("Home page", () => {
   it('Should display all movie posters', () => {
     cy.get(".App").find(".movie-box--display").find("article").should('have.length', 40)
   })
-  it("From the home page, a user should be able to click on an image and be redirected", () => {
-    cy.get(".movie-box--display").first().find("img").click();
-    cy.find("h4")
+  it("From the home page, a user should be able to click on an image", () => {
+    cy.get(".App").find(".movie-box--display").find('article').first().click()
   });
 })
