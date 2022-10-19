@@ -55,4 +55,4 @@ describe("Home page", () => {
       cy.url()
       .should('be.equal', 'http://localhost:3000/')
   });
-})
+});

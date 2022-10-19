@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+
 // import movieData from '../../movie-data';
 import Header from '../Header/Header';
 import MovieCard from '../MovieCard/MovieCard';
@@ -39,25 +40,24 @@ function App() {
   return (
     <Switch>
       <Route
-        exact
-        path="/"
+        exact path="/"
         render={() =>
           <div className="App">
             <Header />
             <Moviebox movies={movies} handleSelection={handleSelection} className="MovieBox" />
           </div>
-
         }
       />
       <Route
-        exact
-        path="/movie/:id"
+        exact path="/movie/:id"
         render={() => <div className="Movie-Description">
           <Header />
           <MovieCard selectedMovie={selectedMovie} clearSelection={clearSelection} />
-        </div>} />
+        </div>
+        } 
+      />
     </Switch>
   );
-}
+};
 
 export default App;

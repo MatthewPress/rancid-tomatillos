@@ -1,4 +1,4 @@
-const getMovies = async (setFunction) => {
+const getMovies = async () => {
   try {
     const response = await fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies");
     if (!response.ok) {
