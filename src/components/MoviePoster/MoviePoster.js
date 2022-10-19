@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
+
 import './MoviePoster.css';
-import { Link } from 'react-router-dom'
 
 function MoviePoster({ movie, handleSelection }) {
   return (
@@ -12,7 +13,6 @@ function MoviePoster({ movie, handleSelection }) {
           className="movie-poster--display"
           onClick={(event) => handleSelection(event)}
         />
-
       </article>
     </Link>
   );

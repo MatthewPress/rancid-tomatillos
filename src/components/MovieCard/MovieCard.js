@@ -1,10 +1,10 @@
+import { Link } from 'react-router-dom';
+
 import './MovieCard.css';
-import { Route, Link } from 'react-router-dom'
 
 function MovieCard({ selectedMovie, clearSelection }) {
 
   return (
-
     <article>
       <Link to={'/'}>
         <button onClick={() => clearSelection()}>Back</button>
@@ -22,8 +22,7 @@ function MovieCard({ selectedMovie, clearSelection }) {
         <h4 className="date">Release Date: {selectedMovie.release_date}</h4>
       </div>
     </article>
-
   );
-}
+};
 
 export default MovieCard;
