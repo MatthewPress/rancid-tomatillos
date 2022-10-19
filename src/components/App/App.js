@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+
 // import movieData from '../../movie-data';
 import Header from '../Header/Header';
 import MovieCard from '../MovieCard/MovieCard';
@@ -51,8 +52,7 @@ function App() {
   return (
     <Switch>
       <Route
-        exact
-        path="/"
+        exact path="/"
         render={() =>
           error ? (
             <Error />
@@ -95,6 +95,6 @@ function App() {
         </div>} />
     </Switch >
   );
-}
+};
 
 export default App;
