@@ -1,0 +1,7 @@
+.search-box {
+    display: flex;
+    margin-left: 40%;
+    height: 20px;
+    border-radius: 30px;
+    width: 20%;
+}

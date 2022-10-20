@@ -1,5 +1,6 @@
 body {
-  color: white;
+  color: black;
+  background-color: black;
 }
 
 h1,
@@ -10,4 +11,17 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+.Search-Bar {
+  display: flex;
+  margin-left: 40%;
+  height: 20px;
+  border-radius: 30px;
+  padding: 10px;
+  width: 20%;
+}
+
+h2 {
+  color: white;
 }
