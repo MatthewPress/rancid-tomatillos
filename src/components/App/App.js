@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
-// import movieData from '../../movie-data';
 import Header from '../Header/Header';
 import MovieCard from '../MovieCard/MovieCard';
 import Moviebox from "../Moviebox/Moviebox";
-import NavBar from "../Navbar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import Error from "../Error/Error";
 
 import { getMovies, getSingleMovie } from '../../apiCalls/apiCalls';
@@ -16,14 +15,14 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
   const [currentResults, setSearchResults] = useState([])
-  const [error, setError] = useState('')
   const [searchInput, setInput] = useState("")
   useEffect(() => {
     getMovies()
       .then((movieData) => {
+        console.log(movieData)
         setMovies(movieData.movies);
       })
-      .catch((error) => setError(error));
+      .catch((error) => console.log(error));
   }, []);
 
   const handleSelection = (event) => {
@@ -31,7 +30,6 @@ function App() {
 
     getSingleMovie(movieID)
       .then((movie) => {
-        console.log(movie)
         setSelectedMovie(movie.movie);
       })
       .catch((error) => console.log(error));
@@ -54,8 +52,10 @@ function App() {
       <Route
         exact path="/"
         render={() =>
-          error ? (
-            <Error />
+          !movies.length ? (
+            <div>
+              <Error className="error" />
+            </div>
           ) : searchInput ? (
             < div className="App">
               <Header />
@@ -70,7 +70,9 @@ function App() {
                   <Moviebox movies={currentResults} handleSelection={handleSelection} />
                 </div>
               ) : (
-                <h2>no matching results. . .</h2>
+                <div className="No-Results">
+                  <h2>No matching results.</h2>
+                </div>
               )}
             </div>
           ) : (
