@@ -13,5 +13,5 @@ const NavBar = ({ handleInput }) => {
             </nav>
         </div>
     );
-};
-export default NavBar;
+}
+export default NavBar; 
