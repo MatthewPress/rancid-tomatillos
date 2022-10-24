@@ -1,7 +1,7 @@
 describe("Home page", () => {
   
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visitBase();
   });
 
   it("Should render a  Header", () => {
