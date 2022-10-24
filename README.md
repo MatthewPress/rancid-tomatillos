@@ -38,7 +38,7 @@
 
 [![Product Demo][product-demo]]()
 
-This is a web application built so that users can see movies and their reviews. It was created for the Turing School of Software and Design's Module 3 groupd project. The overall goal was to demonstrate the our knowledge of React.
+This is a web application built so that users can see movie information. It was created for the Turing School of Software and Design's Module 3 group project. The overall goal was to demonstrate our knowledge of React and Cypress after 2 weeks of studying those subjects.
 
 The project specs can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html).
 
@@ -46,6 +46,7 @@ The project specs can be found [here](https://frontend.turing.edu/projects/modul
 
 #### Front-End
 * React / JavaScript
+* React Router
 * CSS
 * JSX
 
@@ -62,7 +63,7 @@ The project specs can be found [here](https://frontend.turing.edu/projects/modul
 
 ## Usage
 
-- No user login information needed. Just click one of the movie posters or search for a movie.
+- No user login information is needed. Just visit the site, click one of the movie posters or search for a movie by title.
 
 [![Search Movie Demo][search-movie-demo]]()
 
@@ -70,24 +71,24 @@ The project specs can be found [here](https://frontend.turing.edu/projects/modul
 
 ## Notes
 
-This project was completed as a team working mostly asynchronously. Some of our learning goals for this project were to strengthen our knowledge of React and Cypress and to practice with React Hooks and Async / Await
+This project was completed as a team working mostly asynchronously. Some of our learning goals for this project were to strengthen our knowledge of React and Cypress and to practice React Hooks and Async / Await.
 
 ### Functionality includes...
 - Shows a user a collection of movie posters when they visit the site
-- Allows a user to pick a movie poster and see more detailed information on that movie
+- Allows a user to pick a movie poster and see more detailed information of that movie
 - Allows a user to search for a movie by typing the movie's name into a search bar
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
-- [ ] Allow a user to add their own rating for movies.
+- [ ] Allow a user to add their own movie ratings.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
-* Michael Martinelli | [LinkedIn](https://www.linkedin.com/in/michael-martinelli-7230b5237/)
-* Matthew Press | [LinkedIn](https://linkedin.com/in/matthew-press-813961246/) | [GMail](mailto:press.matt14@gmail.com)
+* Michael Martinelli | [LinkedIn](https://www.linkedin.com/in/michael-martinelli-7230b5237/) | [GitHub] (https://github.com/mmartinelli22)
+* Matthew Press | [LinkedIn](https://linkedin.com/in/matthew-press-813961246/) | [GitHub](https://github.com/MatthewPress)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
