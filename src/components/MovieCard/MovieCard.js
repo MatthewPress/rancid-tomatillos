@@ -12,13 +12,13 @@ function MovieCard({ selectedMovie, clearSelection }) {
       <img
         src={selectedMovie.backdrop_path}
         alt={selectedMovie.title}
-        className="specific-movie"
+        className="selected-movie--img"
       />
       <div className='movie-info'>
         <h2>{selectedMovie.overview}</h2>
-        <p>{selectedMovie.genres}</p>
         <h4 className="runtime">Runtime: {selectedMovie.runtime} minutes</h4>
         <h4 className="date">Release Date: {selectedMovie.release_date}</h4>
+        <p>{selectedMovie.genres}</p>
       </div>
     </article>
   );

@@ -1,3 +1,5 @@
+import './Error.css';
+
 const Error = ({ errorMessage }) => {
   return (
     <h2 className="Error">

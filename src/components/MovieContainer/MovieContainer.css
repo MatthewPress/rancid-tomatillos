@@ -4,5 +4,5 @@
   gap: 1rem;
   padding: 1rem;
   text-align: center;
-  background-color: rgb(0, 0, 0);
+  border-top: 1px solid #3D3D3D;
 }

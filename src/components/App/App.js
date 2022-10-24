@@ -53,50 +53,51 @@ function App() {
   };
 
   return (
-    <Switch>
-      <Route
-        exact path="/"
-        render={() =>
-          <div className="landing--page">
-            <Header />
-            {
-              errorMessage
-                ? <Error errorMessage={errorMessage} /> 
-                : <main>
-                    <NavBar
-                      handleInput={handleInput}
-                      movies={movies}
-                    />
-                    <MovieContainer 
-                      movies={movies} 
-                      handleSelection={handleSelection}
-                      searchResults={searchResults}
-                      searchInput={searchInput}
-                    />
-                  </main>
-            }
-          </div>
-        }
-      />
-      <Route
-        exact path="/movie/:id"
-        render={() => 
-          <div className="movie-card--page">
-            <Header />
-            {
-              errorMessage
-                ? <Error errorMessage={errorMessage} /> 
-                : <main>
-                    <MovieCard 
-                      selectedMovie={selectedMovie} 
-                      clearSelection={clearSelection} 
-                    />
-                  </main>
-            }
-          </div>
-        } 
-      />
-    </Switch >
+    <>
+      <Header />
+      <Switch>
+        <Route
+          exact path="/"
+          render={() =>
+            <div className="landing--page">
+              {
+                errorMessage
+                  ? <Error errorMessage={errorMessage} /> 
+                  : <main>
+                      <NavBar
+                        handleInput={handleInput}
+                        movies={movies}
+                      />
+                      <MovieContainer 
+                        movies={movies} 
+                        handleSelection={handleSelection}
+                        searchResults={searchResults}
+                        searchInput={searchInput}
+                      />
+                    </main>
+              }
+            </div>
+          }
+        />
+        <Route
+          exact path="/movie/:id"
+          render={() => 
+            <div className="movie-card--page">
+              {
+                errorMessage
+                  ? <Error errorMessage={errorMessage} /> 
+                  : <main>
+                      <MovieCard 
+                        selectedMovie={selectedMovie} 
+                        clearSelection={clearSelection} 
+                      />
+                    </main>
+              }
+            </div>
+          } 
+        />
+      </Switch >
+    </>
   );
 }
 

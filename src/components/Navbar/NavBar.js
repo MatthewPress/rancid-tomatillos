@@ -4,9 +4,9 @@ const NavBar = ({ handleInput }) => {
   
   return (
     <div className="NavBar">
-      <nav className="search-box">
+      <nav>
           <input
-            className="input"
+            className="search-box"
             type="text"
             placeholder="Search by title"
             onChange={handleInput}

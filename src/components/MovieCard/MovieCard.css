@@ -1,21 +1,8 @@
 article {
-  background-color: black;
+text-align: center;
 }
 
-.specific-movie {
-  justify-content: center;
-  height: auto;
-  border-color: black;
-  background-color: black;
-  width: 80%;
-}
-
-.specific-movie:hover {
-  transform: none;
-  border-color: black;
-}
-
-p,
-h4 {
-  color: white;
+.selected-movie--img {
+  width: 90%;
+  margin: auto;
 }
