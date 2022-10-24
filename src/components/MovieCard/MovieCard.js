@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './MovieCard.css';
 
 function MovieCard({ selectedMovie, clearSelection }) {
-
   return (
     <article>
       <Link to={'/'}>
