@@ -18,6 +18,6 @@ function Moviebox({ movies, handleSelection }) {
       {movieCards}
     </section>
   );
-};
+}
 
 export default Moviebox;

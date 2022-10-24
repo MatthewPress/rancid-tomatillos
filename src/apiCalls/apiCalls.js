@@ -18,8 +18,7 @@ const getSingleMovie = async (movieID) => {
     const response = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`);
     if (!response.ok) {
       throw new Error("Sorry, we weren't able to retrieve data for that movie");
-    }
-    else {
+    } else {
       const data = await response.json();
       return data;
     }
@@ -31,4 +30,4 @@ const getSingleMovie = async (movieID) => {
 export {
   getMovies,
   getSingleMovie,
-}
+};

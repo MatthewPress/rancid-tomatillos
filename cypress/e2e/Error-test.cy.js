@@ -1,9 +1,12 @@
 describe("Error Page", () => {
+  
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
+
   it("Should not exist by default", () => {
-    cy.get(".Error").should("not.exist");
+    cy.get(".Error")
+      .should("not.exist");
   });
 
   it("Should only render if an error has occurred", () => {
@@ -21,4 +24,5 @@ describe("Error Page", () => {
         );
     });
   });
+  
 });

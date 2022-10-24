@@ -1,4 +1,5 @@
 describe("Home page", () => {
+  
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
@@ -12,7 +13,7 @@ describe("Home page", () => {
     cy.get(".App")
       .find(".movie-box--display")
       .find("article")
-      .should('have.length', 40)
+      .should('have.length', 40);
   });
 
   it("From the home page, a user should be able to click on an image", () => {
@@ -21,22 +22,22 @@ describe("Home page", () => {
       .find('article')
       .find('img')
       .first()
-      .click()
+      .click();
 
     cy.get('article')
       .find('h2')
-      .contains('Money Plane')
+      .contains('Money Plane');
 
     cy.get('article')
       .find('p')
-      .contains('Action')
+      .contains('Action');
     
     cy.get('article')
       .find('h4')
-      .contains('82 minutes')
+      .contains('82 minutes');
 
     cy.url()
-      .should('be.equal', 'http://localhost:3000/movie/694919')
+      .should('be.equal', 'http://localhost:3000/movie/694919');
       
   });
 
@@ -46,13 +47,14 @@ describe("Home page", () => {
       .find('article')
       .find('img')
       .first()
-      .click()
+      .click();
 
     cy.get('article')
       .find('button')
-      .click()
+      .click();
 
-      cy.url()
-      .should('be.equal', 'http://localhost:3000/')
+    cy.url()
+      .should('be.equal', 'http://localhost:3000/');
   });
+
 });

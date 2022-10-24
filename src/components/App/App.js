@@ -14,12 +14,12 @@ import './App.css';
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
-  const [currentResults, setSearchResults] = useState([])
-  const [searchInput, setInput] = useState("")
+  const [currentResults, setSearchResults] = useState([]);
+  const [searchInput, setInput] = useState("");
+
   useEffect(() => {
     getMovies()
       .then((movieData) => {
-        console.log(movieData)
         setMovies(movieData.movies);
       })
       .catch((error) => console.log(error));
@@ -33,19 +33,20 @@ function App() {
         setSelectedMovie(movie.movie);
       })
       .catch((error) => console.log(error));
-  }
+  };
+
   const handleInput = (event) => {
     const results = movies.filter((movie) =>
       movie.title.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setInput(event.target.value)
-    setSearchResults(results)
+    setInput(event.target.value);
+    setSearchResults(results);
   };
 
   const clearSelection = () => {
     setSelectedMovie({});
     setInput('');
-  }
+  };
 
   return (
     <Switch>
@@ -83,20 +84,26 @@ function App() {
                 handleInput={handleInput}
                 movies={movies}
               />
-              <Moviebox movies={movies} handleSelection={handleSelection} className="MovieBox" />
+              <Moviebox 
+                movies={movies} 
+                handleSelection={handleSelection} 
+                className="MovieBox" 
+              />
             </div>
           )
         }
       />
       < Route
-        exact
-        path="/movie/:id"
-        render={() => <div className="Movie-Description">
-          <Header />
-          <MovieCard selectedMovie={selectedMovie} clearSelection={clearSelection} />
-        </div>} />
+        exact path="/movie/:id"
+        render={() => 
+          <div className="Movie-Description">
+            <Header />
+            <MovieCard selectedMovie={selectedMovie} clearSelection={clearSelection} />
+          </div>
+        } 
+      />
     </Switch >
   );
-};
+}
 
 export default App;

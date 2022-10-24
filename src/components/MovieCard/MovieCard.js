@@ -23,6 +23,6 @@ function MovieCard({ selectedMovie, clearSelection }) {
       </div>
     </article>
   );
-};
+}
 
 export default MovieCard;
