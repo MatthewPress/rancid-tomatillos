@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Rancid Tomatillos",
+  "short_name": "Rancid Tomatillos",
+  "name": "Movie Information Site",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
