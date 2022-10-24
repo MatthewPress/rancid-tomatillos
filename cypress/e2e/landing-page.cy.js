@@ -1,60 +1,67 @@
-describe("Home page", () => {
+describe("Landing Page", () => {
   
   beforeEach(() => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 200,
+      ok: true,
+      fixture: 'movie-data'
+    });
+
     cy.visitBase();
   });
 
-  it("Should render a  Header", () => {
+  it("Should render a header", () => {
     cy.get("Header")
       .contains("Rancid Tomatillos");
   });
 
+  it("Should render a NavBar", () => {
+    cy.get(".NavBar")
+      .find("input");
+  });
+
+  it('Should return all movies with similar letters inside their title', () => {
+    cy.get('.search-box')
+      .trigger('mouseover')
+      .should('be.visible');
+
+    cy.get('input[type="text"]')
+      .click({ force: true })
+      .type("Ro");
+
+    cy.get('article')
+      .should('have.length', 4)
+  })
+
+  it("Should recieve an error message if no results match", () => {
+    cy.get(".search-box")
+      .trigger("mouseover")
+      .should("be.visible");
+
+    cy.get('input[type="text"]')
+      .click({ force: true })
+      .type("I'm really hungry");
+
+    cy.get("p")
+      .should("contain", "Sorry! No matches have been found");
+  });
+
   it('Should display all movie posters', () => {
-    cy.get(".App")
+    cy.get(".app--container")
       .find(".movie-box--display")
       .find("article")
       .should('have.length', 40);
   });
 
-  it("From the home page, a user should be able to click on an image", () => {
-    cy.get(".App")
+  it("Should take the user to a movies' page when it's poster is clicked", () => {
+    cy.get(".app--container")
       .find(".movie-box--display")
       .find('article')
       .find('img')
       .first()
       .click();
-
-    cy.get('article')
-      .find('h2')
-      .contains('Money Plane');
-
-    cy.get('article')
-      .find('p')
-      .contains('Action');
-    
-    cy.get('article')
-      .find('h4')
-      .contains('82 minutes');
 
     cy.url()
       .should('be.equal', 'http://localhost:3000/movie/694919');
-      
   });
-
-  it("Should take the user back to the homepage when the back button is pressed", () => {
-    cy.get(".App")
-      .find(".movie-box--display")
-      .find('article')
-      .find('img')
-      .first()
-      .click();
-
-    cy.get('article')
-      .find('button')
-      .click();
-
-    cy.url()
-      .should('be.equal', 'http://localhost:3000/');
-  });
-
 });

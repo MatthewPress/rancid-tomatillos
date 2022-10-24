@@ -1,39 +1,35 @@
-describe("NavBar", () => {
+describe("MovieCard Page", () => {
   
   beforeEach(() => {
-    cy.visitBase();
+    cy.visitBase()
+      .get(".app--container")
+      .find(".movie-box--display")
+      .find('article')
+      .find('img')
+      .first()
+      .click();
   });
 
-  it("Should render a NavBar", () => {
-    cy.get(".NavBar")
-      .find("input");
-  });
-
-  it('Should return all movies with similar letters inside their title', () => {
-    cy.get('.search-box')
-      .trigger('mouseover')
-      .should('be.visible');
-
-    cy.get('input[type="text"]')
-      .click({ force: true })
-      .type("Ro");
+  it('Should display information about a single selected movie', () => {
+    cy.get('article')
+      .find('h2')
+      .contains('Money Plane');
 
     cy.get('article')
-      .should('have.length', 4)
-  })
-
-  it("Should recieve an error message if no results match", () => {
-    cy.get(".search-box")
-      .trigger("mouseover")
-      .should("be.visible");
-
-    cy.get('input[type="text"]')
-      .click({ force: true })
-      .type("I'm really hungry");
-
-    cy.get(".No-Results")
-      .find("h2")
-      .should("contain", "No matching results.");
+      .find('p')
+      .contains('Action');
+    
+    cy.get('article')
+      .find('h4')
+      .contains('82 minutes');
   });
 
+  it("Should take the user back to the homepage when the back button is pressed", () => {
+    cy.get('article')
+      .find('button')
+      .click();
+
+    cy.url()
+      .should('be.equal', 'http://localhost:3000/');
+  });
 });
