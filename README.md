@@ -36,7 +36,7 @@
 
 ## About The Project
 
-[![Product Demo][product-demo]]()
+[![Product Demo][product-demo]](./src/assets/images/product-demo.gif)
 
 This is a web application built so that users can see movie information. It was created for the Turing School of Software and Design's Module 3 group project. The overall goal was to demonstrate our knowledge of React and Cypress after 2 weeks of studying those subjects.
 
@@ -65,7 +65,7 @@ The project specs can be found [here](https://frontend.turing.edu/projects/modul
 
 - No user login information is needed. Just visit the site, click one of the movie posters or search for a movie by title.
 
-[![Search Movie Demo][search-movie-demo]]()
+[![Search Movie Demo][search-movie-demo]](./src/assets/images/search-movie-demo.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,8 +93,8 @@ This project was completed as a team working mostly asynchronously. Some of our 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-demo]: 
-[search-movie-demo]: 
+[product-demo]: ./src/assets/images/product-demo.gif
+[search-movie-demo]: ./src/assets/images/search-movie-demo.gif
 
 
 
