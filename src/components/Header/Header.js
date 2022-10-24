@@ -1,11 +1,11 @@
 import './Header.css';
 
-function Header() {
+const Header = () => {
   return (
-    <header className='header'>
+    <header>
       <h1>Rancid Tomatillos</h1>
     </header>
   );
-};
+}
 
 export default Header;

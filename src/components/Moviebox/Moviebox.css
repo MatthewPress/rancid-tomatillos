@@ -1,8 +1,0 @@
-.movie-box--display {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1rem;
-  text-align: center;
-  background-color: rgb(0, 0, 0);
-}

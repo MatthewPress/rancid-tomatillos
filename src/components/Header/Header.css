@@ -1,6 +1,8 @@
 header {
-  color: white;
-  background: black;
-  height: 10vh;
+  background-color: #D01114;
+  font-size: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid #3D3D3D;
+  margin-bottom: 2rem;
 }
   

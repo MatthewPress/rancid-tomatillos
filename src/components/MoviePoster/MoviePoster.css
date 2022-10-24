@@ -2,21 +2,16 @@
   max-width: 95%;
   height: auto;
   border: 1px solid aliceblue;
-  transition: transform 0.2s ease-in-out;
-  cursor: pointer;
   margin-bottom: 2%;
-  box-shadow: rgba(255, 255, 255, 0.524) 0px 8px 19px,
+  box-shadow: 
+    rgba(255, 255, 255, 0.524) 0px 8px 19px,
     rgba(0, 0, 0, 0.22) 0px 7px 6px;
   margin: 0%;
 }
 
 .movie-poster--display:hover {
   transform: scale(1.1);
-  border: 1px solid rgb(226, 212, 106);
   transition: transform 0.2s ease-in-out;
+  border: 1px solid rgb(226, 212, 106);
   cursor: pointer;
-  margin-bottom: 2%;
-  box-shadow: rgba(255, 255, 255, 0.524) 0px 8px 19px,
-    rgba(0, 0, 0, 0.22) 0px 7px 6px;
-  margin: 0%;
 }

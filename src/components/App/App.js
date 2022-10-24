@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Header from '../Header/Header';
-import MovieCard from '../MovieCard/MovieCard';
-import Moviebox from "../Moviebox/Moviebox";
-import NavBar from "../NavBar/NavBar";
 import Error from "../Error/Error";
+import NavBar from "../NavBar/NavBar";
+import MovieContainer from "../MovieContainer/MovieContainer";
+import MovieCard from '../MovieCard/MovieCard';
 
 import { getMovies, getSingleMovie } from '../../apiCalls/apiCalls';
 
@@ -14,15 +14,21 @@ import './App.css';
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
-  const [currentResults, setSearchResults] = useState([])
-  const [searchInput, setInput] = useState("")
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
     getMovies()
       .then((movieData) => {
-        console.log(movieData)
         setMovies(movieData.movies);
+        setErrorMessage("");
+        console.log({errorMessage})
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setErrorMessage(error.message)
+        console.log({errorMessage})
+    });
   }, []);
 
   const handleSelection = (event) => {
@@ -31,72 +37,72 @@ function App() {
     getSingleMovie(movieID)
       .then((movie) => {
         setSelectedMovie(movie.movie);
+        setErrorMessage("");
       })
-      .catch((error) => console.log(error));
-  }
+      .catch((error) => setErrorMessage(error.message));
+  };
+
   const handleInput = (event) => {
     const results = movies.filter((movie) =>
       movie.title.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setInput(event.target.value)
-    setSearchResults(results)
+    setSearchInput(event.target.value);
+    setSearchResults(results);
   };
 
   const clearSelection = () => {
     setSelectedMovie({});
-    setInput('');
-  }
+    setSearchInput("");
+    setSearchResults([]);
+  };
 
   return (
-    <Switch>
-      <Route
-        exact path="/"
-        render={() =>
-          !movies.length ? (
-            <div>
-              <Error className="error" />
+    <div className="app--container">
+      <Header />
+      <Switch>
+        <Route
+          exact path="/"
+          render={() =>
+            <div className="landing--page">
+              {
+                errorMessage
+                  ? <Error errorMessage={errorMessage} /> 
+                  : <main>
+                      <NavBar
+                        handleInput={handleInput}
+                        movies={movies}
+                      />
+                      <MovieContainer 
+                        movies={movies} 
+                        handleSelection={handleSelection}
+                        searchResults={searchResults}
+                        searchInput={searchInput}
+                      />
+                    </main>
+              }
             </div>
-          ) : searchInput ? (
-            < div className="App">
-              <Header />
-              <NavBar
-                className="Search-Bar"
-                handleInput={handleInput}
-                movies={movies}
-              />
-              {currentResults.length ? (
-                <div>
-                  <h2>seach results for '{searchInput}'</h2>
-                  <Moviebox movies={currentResults} handleSelection={handleSelection} />
-                </div>
-              ) : (
-                <div className="No-Results">
-                  <h2>No matching results.</h2>
-                </div>
-              )}
+          }
+        />
+        <Route
+          exact path="/movie/:id"
+          render={() => 
+            <div className="movie-card--page">
+              {
+                errorMessage
+                  ? <Error errorMessage={errorMessage} /> 
+                  : <main>
+                      <MovieCard 
+                        selectedMovie={selectedMovie} 
+                        clearSelection={clearSelection} 
+                      />
+                    </main>
+              }
             </div>
-          ) : (
-            <div className="App">
-              <Header />
-              <NavBar
-                className="Search-Bar"
-                handleInput={handleInput}
-                movies={movies}
-              />
-              <Moviebox movies={movies} handleSelection={handleSelection} className="MovieBox" />
-            </div>
-          )
-        }
-      />
-      < Route
-        exact
-        path="/movie/:id"
-        render={() => <div className="Movie-Description">
-          <Header />
-          <MovieCard selectedMovie={selectedMovie} clearSelection={clearSelection} />
-        </div>} />
-    </Switch >
+          } 
+        />
+      </Switch >
+    </div>
   );
-};
+}
 
 export default App;
