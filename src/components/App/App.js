@@ -67,8 +67,11 @@ function App() {
               />
               {currentResults.length ? (
                 <div>
-                  <h2>seach results for '{searchInput}'</h2>
-                  <Moviebox movies={currentResults} handleSelection={handleSelection} />
+                  <h2>Search results for '{searchInput}'</h2>
+                  <Moviebox 
+                    movies={currentResults} 
+                    handleSelection={handleSelection} 
+                  />
                 </div>
               ) : (
                 <div className="No-Results">
@@ -98,7 +101,10 @@ function App() {
         render={() => 
           <div className="Movie-Description">
             <Header />
-            <MovieCard selectedMovie={selectedMovie} clearSelection={clearSelection} />
+            <MovieCard 
+              selectedMovie={selectedMovie} 
+              clearSelection={clearSelection} 
+            />
           </div>
         } 
       />
