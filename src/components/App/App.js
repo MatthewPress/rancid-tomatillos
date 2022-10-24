@@ -23,8 +23,12 @@ function App() {
       .then((movieData) => {
         setMovies(movieData.movies);
         setErrorMessage("");
+        console.log({errorMessage})
       })
-      .catch((error) => setErrorMessage(error.message));
+      .catch((error) => {
+        setErrorMessage(error.message)
+        console.log({errorMessage})
+    });
   }, []);
 
   const handleSelection = (event) => {
@@ -53,7 +57,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="app--container">
       <Header />
       <Switch>
         <Route
@@ -97,7 +101,7 @@ function App() {
           } 
         />
       </Switch >
-    </>
+    </div>
   );
 }
 

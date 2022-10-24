@@ -8,7 +8,7 @@ const NavBar = ({ handleInput }) => {
           <input
             className="search-box"
             type="text"
-            placeholder="Search by title"
+            placeholder="SEARCH BY TITLE"
             onChange={handleInput}
           />
       </nav>
