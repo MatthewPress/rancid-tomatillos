@@ -87,7 +87,7 @@ This project was completed as a team working mostly asynchronously. Some of our 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
-* Michael Martinelli | [LinkedIn](https://www.linkedin.com/in/michael-martinelli-7230b5237/) | [GitHub] (https://github.com/mmartinelli22)
+* Michael Martinelli | [LinkedIn](https://www.linkedin.com/in/michael-martinelli-7230b5237/) | [GitHub](https://github.com/mmartinelli22)
 * Matthew Press | [LinkedIn](https://linkedin.com/in/matthew-press-813961246/) | [GitHub](https://github.com/MatthewPress)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
