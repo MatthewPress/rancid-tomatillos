@@ -30,6 +30,6 @@ describe("MovieCard Page", () => {
       .click();
 
     cy.url()
-      .should('be.equal', 'http://localhost:3000/');
+      .should('be.equal', 'http://localhost:3000/rancid-tomatillos');
   });
 });

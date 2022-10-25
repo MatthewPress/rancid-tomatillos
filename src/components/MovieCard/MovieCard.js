@@ -5,7 +5,7 @@ import './MovieCard.css';
 function MovieCard({ selectedMovie, clearSelection }) {
   return (
     <article>
-      <Link to={'/'}>
+      <Link to={'/rancid-tomatillos'}>
         <button onClick={() => clearSelection()}>Back</button>
       </Link>
       <h2>{selectedMovie.title}</h2>

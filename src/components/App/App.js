@@ -59,7 +59,7 @@ function App() {
       <Header />
       <Switch>
         <Route
-          exact path="/"
+          exact path="/rancid-tomatillos"
           render={() =>
             <div className="landing--page">
               {
