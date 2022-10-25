@@ -2,6 +2,10 @@
   "name": "rancid-tomatillos",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "url": "git@github.com:MatthewPress/rancid-tomatillos.git"
+  },
+  "homepage": "http://MatthewPress.github.io/rancid-tomatillos",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +21,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +45,7 @@
   },
   "devDependencies": {
     "cypress": "^10.10.0",
-    "eslint-plugin-cypress": "^2.12.1"
+    "eslint-plugin-cypress": "^2.12.1",
+    "gh-pages": "^4.0.0"
   }
 }
