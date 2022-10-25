@@ -1,12 +1,6 @@
 describe("Landing Page", () => {
   
   beforeEach(() => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-      statusCode: 200,
-      ok: true,
-      fixture: 'movie-data'
-    });
-
     cy.visitBase();
   });
 
@@ -25,12 +19,20 @@ describe("Landing Page", () => {
       .trigger('mouseover')
       .should('be.visible');
 
+    cy.get(".app--container")
+      .find(".movie-box--display")
+      .find("article")
+      .should('have.length', 40);
+
     cy.get('input[type="text"]')
       .click({ force: true })
       .type("Ro");
 
-    cy.get('article')
-      .should('have.length', 4)
+      cy.get(".app--container")
+      .find(".movie-box--display")
+      .find("article")
+      .should('have.length', 4);
+
   })
 
   it("Should recieve an error message if no results match", () => {

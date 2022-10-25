@@ -9,7 +9,7 @@ const NavBar = ({ handleInput }) => {
             className="search-box"
             type="text"
             placeholder="SEARCH BY TITLE"
-            onChange={handleInput}
+            onChange={(event) => handleInput(event)}
           />
       </nav>
     </div>
