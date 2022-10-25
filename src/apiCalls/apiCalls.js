@@ -9,7 +9,7 @@ const getMovies = async () => {
       return data;
     }
   } catch (error) {
-    return error;
+    return `getMovies catch`;
   }
 };
 

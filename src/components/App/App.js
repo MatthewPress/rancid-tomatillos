@@ -23,11 +23,9 @@ function App() {
       .then((movieData) => {
         setMovies(movieData.movies);
         setErrorMessage("");
-        console.log({errorMessage})
       })
       .catch((error) => {
         setErrorMessage(error.message)
-        console.log({errorMessage})
     });
   }, []);
 
@@ -68,10 +66,7 @@ function App() {
                 errorMessage
                   ? <Error errorMessage={errorMessage} /> 
                   : <main>
-                      <NavBar
-                        handleInput={handleInput}
-                        movies={movies}
-                      />
+                      <NavBar handleInput={handleInput} />
                       <MovieContainer 
                         movies={movies} 
                         handleSelection={handleSelection}
@@ -100,7 +95,7 @@ function App() {
             </div>
           } 
         />
-      </Switch >
+      </Switch>
     </div>
   );
 }
