@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import Header from '../Header/Header';
 import Error from "../Error/Error";
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../NavBar/NavBar"; 
 import MovieContainer from "../MovieContainer/MovieContainer";
 import MovieCard from '../MovieCard/MovieCard';
 
